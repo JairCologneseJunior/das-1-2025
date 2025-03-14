@@ -71,3 +71,4 @@ Qual o comportamento do arquiteto ideal?
 
 # Aula dia 13/03
   -U arquiteto tem, em comparação com as de um desenvolvedor. Como mostrado no diagrama, um arquiteto é responsável por coisas como analisar os requisitos comerciais para extrair e definir as características da arquitetura (os “atributos”), selecionar quais padrões e estilos da arquitetura se encaixariam no domínio do problema e criar componentes (blocos de construção do sistema). 
+  -Para que a arquitetura funcione e preciso que o desenvolvedor e o mesmo se comuniquem para o projeto ser um sucesso.
