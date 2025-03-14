@@ -56,7 +56,7 @@ Monolito
   - Resolve problemas de concorrencia
   - Permite compartilhamento de dados
 
- # Aula dia 06/03
+# Aula dia 13/02
  
   - Who Needs an Architect ? https://martinfowler.com/ieeeSoftware/whoNeedsArchitect.pdf
 
