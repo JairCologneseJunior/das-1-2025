@@ -68,3 +68,6 @@ Qual o comportamento do arquiteto da "Matrix"?
   
 Qual o comportamento do arquiteto ideal?
   - É orientar a equipe de desenvolvimento, levantar seu nível para que possam assumir questões mais complexas. Melhorar a habilidade da equipe de desenvolvimento dá ao arquiteto uma alavancagem muito maior do que ser o único tomador de decisões e, portanto, correr o risco de ser um gargalo arquitetônico.
+
+#Aula dia 12/03
+  -U arquiteto tem, em comparação com as de um desenvolvedor. Como mostrado no diagrama, um arquiteto é responsável por coisas como analisar os requisitos comerciais para extrair e definir as características da arquitetura (os “atributos”), selecionar quais padrões e estilos da arquitetura se encaixariam no domínio do problema e criar componentes (blocos de construção do sistema). 
