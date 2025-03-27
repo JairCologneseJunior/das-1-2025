@@ -1,74 +1,35 @@
-# das-1-2025
+# Arquitetura baseada em Eventos
 
-# Aula dia 26/02
+## Tópicos
+![Topicos](./diagramas/topicos.png)
 
-# Livro ENG SOFT MODERNA CAP-07 https://engsoftmoderna.info/cap7.html
+[Install Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli)
 
-Interface, pacotes, componentes, modulos, camadas, serviços
-O pacote ajuda na arquitetura de software deixando o projeto mais organizado, eficiênciente, com o objetivo de criar um software de mais alto nível
-Camada de apresentação (front)
-Camada de gerir informação (back)
-Camada de informação (bd,drivers, devices)
-Anotação são tipos de componentes, são bibliotecas, feitas de antemão, e usadas para facilitar na programação
-No Java se refere como @
-Httpserveletrequest (Java) ajuda a entender oq è o Java vindo da internet
+1. Realizar o login no Azure lindo ❤️, com a conta da UNIVILLE
+```bash
+az login
+```
 
-# Aula dia 27/02
+[Padrão de nomenclatura de recursos](https://learn.microsoft.com/pt-br/azure/cloud-adoption-framework/ready/azure-best-practices/resource-naming)
 
-Padrões aquiteturais, umas das mais utilizadas é em camadas. Basica front / back / bd
+2. Como criar um grupo de recurso
+```bash
+az group create --name rg-das12025-test-brazilsouth --location brazilsouth
+```
 
-- Aquitetura model view-controlle ou MVC
-- view: apresentação dos dados ao usuario
-- model: acessar e gerenciar dados
-- controller: controlar a tela
+3. Como criar uma instancia do [Azure Service Bus](https://learn.microsoft.com/en-us/azure/service-bus-messaging/service-bus-messaging-overview)
 
-- entidade: 
-- modelo: outra classe que representa os dados que vão para outra tela
+```bash
+az servicebus namespace create --resource-group rg-das12025-test-brazilsouth --name sb-das12025-test-brazilsouth --location brazilsouth --sku Standard
+```
+4. Criar o tópico
+```bash
+az servicebus topic create --resource-group rg-das12025-test-brazilsouth --namespace-name sb-das12025-test-brazilsouth --name topic-das1
+```
 
-Microsserviços: pode ser um modulo, ideia que nao tenha interface grafica. Api rest. Deve ter camadas.
+5. Criar a Subscription
+```bash
+az servicebus topic subscription create --resource-group rg-das12025-test-brazilsouth --namespace-name sb-das12025-test-brazilsouth --topic-name topic-das1 --name subscription-walter
+```
 
-Monolito
-- Repositorio unico de codigo
-- Uso de uma unica tecnologia padrão
-- Compilado, testado, unico pacote
-- Deploy com um unico sistema
-- Executado como um unico processo no sistema operacional
-- Unico banco de dados
-
-# Aula dia 05/03
-
-- Padrão arquitetural: solução para um problema especifico.
-- MVC: separa as responsabilidades (model(dados) - view(tela) - control(comportamento))
-- Estilo arquitetura = organização do projeto
-
-- Arquitetura em camadas
-- DIvisão de responsabilade
-- Perfomace
-- Segurança
-- Manutenibilidade
-- Camada de apresentação
-  - Requisitos próprios
-- Camada de logica de negocio (aplicação)
-  - Local central para definiição e atualização de regras
-  - Escalar o backend suportar as requisições
-- Camada de persistência
-  - Banco de dados relacional - consolidada
-  - Resolve problemas de concorrencia
-  - Permite compartilhamento de dados
-
-# Aula dia 06/03
- 
-  - Who Needs an Architect ? https://martinfowler.com/ieeeSoftware/whoNeedsArchitect.pdf
-
-O que é arquitetura?
-  - A arquitetura de um sistema de software(em um dado ponto no tempo) é sua organização ou estrutura de componentes significativos interagindo por meio de interfaces, esses componentes sendo compostos de componentes e interfaces sucessivamente menores
-
-Qual o comportamento do arquiteto da "Matrix"?
-  - Aquele quem toma as decisões mais importantes, logo no início do projeto, para que todos tenham um plano a seguir, sendo o único responsável por garantir a integridade conceitual de um sistema
-  
-Qual o comportamento do arquiteto ideal?
-  - É orientar a equipe de desenvolvimento, levantar seu nível para que possam assumir questões mais complexas. Melhorar a habilidade da equipe de desenvolvimento dá ao arquiteto uma alavancagem muito maior do que ser o único tomador de decisões e, portanto, correr o risco de ser um gargalo arquitetônico.
-
-# Aula dia 13/03
-  -U arquiteto tem, em comparação com as de um desenvolvedor. Como mostrado no diagrama, um arquiteto é responsável por coisas como analisar os requisitos comerciais para extrair e definir as características da arquitetura (os “atributos”), selecionar quais padrões e estilos da arquitetura se encaixariam no domínio do problema e criar componentes (blocos de construção do sistema). 
-  -Para que a arquitetura funcione e preciso que o desenvolvedor e o mesmo se comuniquem para o projeto ser um sucesso.
+6. [Exemplo de código em Java](https://learn.microsoft.com/en-us/azure/service-bus-messaging/service-bus-java-how-to-use-topics-subscriptions?tabs=passwordless)

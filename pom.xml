@@ -5,12 +5,26 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>br.univille</groupId>
-    <artifactId>MultiProjectDAS20251</artifactId>
+    <artifactId>eventos</artifactId>
     <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+    </properties>
 
     <dependencies>
         <dependency>
-            eventos
+            <groupId>com.azure</groupId>
+            <artifactId>azure-messaging-servicebus</artifactId>
+            <version>7.13.3</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>com.azure</groupId>
+            <artifactId>azure-identity</artifactId>
+            <version>1.8.0</version>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
 
